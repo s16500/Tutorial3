@@ -85,9 +85,37 @@ namespace Tutorial3.Controllers
                 int affectedRows = com.ExecuteNonQuery();
             }
             return Ok();
+            
+            
+            
 
         }
+[HttpPut("{Id}")]
 
+
+        public IActionResult putStudent(int Id)
+
+
+        {
+
+            Student student = new Student();
+            student.idStudent = Id;
+            student.IndexNumber = $"s{new Random().Next(1, 20000)}";
+            return Ok("Update complete");
+        }
+
+
+
+        [HttpDelete("{Id}")]
+
+
+        public IActionResult deleteStudent(int Id)
+
+        {
+
+            return Ok("Delete complete");
+        }
+
+    }
         
     }
-}
